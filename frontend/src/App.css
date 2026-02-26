@@ -874,3 +874,211 @@ body {
     transform: rotate(360deg);
   }
 }
+
+/* ============================================
+   RESPONSIVE — TABLET (max 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0 1rem 4rem;
+    gap: 1.75rem;
+  }
+
+  .header {
+    padding: 3rem 0.5rem 1.5rem;
+  }
+
+  .header-title {
+    font-size: 2.2rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .header-stats {
+    gap: 1.25rem;
+  }
+
+  .stat-value {
+    font-size: 1.3rem;
+  }
+
+  .glass-panel {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .btn-search {
+    width: 100%;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .pharmacy-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .results-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE (max 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 0 0.75rem 3rem;
+    gap: 1.25rem;
+  }
+
+  .header {
+    padding: 2.5rem 0.25rem 1rem;
+  }
+
+  .header-badge {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .header-title {
+    font-size: 1.75rem;
+    letter-spacing: -0.03em;
+    gap: 0.4rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .header-stats {
+    gap: 0.75rem;
+  }
+
+  .stat-value {
+    font-size: 1.1rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+  }
+
+  .stat-divider {
+    height: 30px;
+  }
+
+  .glass-panel {
+    padding: 1.25rem 1rem;
+    border-radius: 18px;
+  }
+
+  .panel-label {
+    font-size: 0.65rem;
+    margin-bottom: 1rem;
+  }
+
+  .input-field {
+    height: 48px;
+    font-size: 0.9rem;
+    border-radius: 12px;
+  }
+
+  .btn-search {
+    height: 48px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    padding: 0 1.25rem;
+  }
+
+  .pharmacy-card {
+    padding: 1.25rem;
+    border-radius: 16px;
+  }
+
+  .card-header h3 {
+    font-size: 0.95rem;
+  }
+
+  .info-row {
+    font-size: 0.8rem;
+  }
+
+  .action-btn {
+    font-size: 0.75rem;
+    padding: 0.55rem 0.5rem;
+    border-radius: 10px;
+  }
+
+  .loading-box,
+  .error-box,
+  .empty-box {
+    padding: 3.5rem 1.5rem;
+    border-radius: 18px;
+  }
+
+  .results-header h2 {
+    font-size: 1rem;
+  }
+
+  /* Küçük ekranlarda orb'ları küçült */
+  .orb-1 {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -80px;
+  }
+
+  .orb-2 {
+    width: 250px;
+    height: 250px;
+    bottom: -80px;
+    right: -60px;
+  }
+
+  .orb-3 {
+    display: none;
+  }
+
+  .footer {
+    font-size: 0.7rem;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .footer-dot {
+    display: none;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — TABLET 2 KOLON (640px - 1024px)
+   ============================================ */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .pharmacy-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================
+   RESPONSIVE — DESKTOP 3 KOLON (1024px+)
+   ============================================ */
+@media (min-width: 1024px) {
+  .pharmacy-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .top-bar {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}

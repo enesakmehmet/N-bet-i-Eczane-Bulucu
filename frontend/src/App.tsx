@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import "./App.css";
 import { cities } from "./cities";
+import { districts } from "./districts";
 
 interface Pharmacy {
   name: string;
@@ -19,6 +20,7 @@ function App() {
   const apiKey = import.meta.env.VITE_COLLECT_API_KEY;
   const [city, setCity] = useState("Ankara");
   const [district, setDistrict] = useState("");
+  const districtList = districts[city] || [];
   const [pharmacies, setPharmacies] = useState<Pharmacy[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -27,6 +29,7 @@ function App() {
   const handleSearch = async () => {
     if (!apiKey) { setError("Lütfen .env dosyasına API anahtarını ekleyin."); return; }
     setLoading(true); setError(""); setPharmacies([]);
+
     try {
       const res = await axios.get("https://api.collectapi.com/health/dutyPharmacy", {
         params: { il: city, ilce: district },
@@ -46,7 +49,10 @@ function App() {
     }
   };
 
-  const handleKey = (e: React.KeyboardEvent) => { if (e.key === "Enter") handleSearch(); };
+  const handleCityChange = (newCity: string) => {
+    setCity(newCity);
+    setDistrict("");
+  };
 
   const now = new Date();
   const timeStr = now.toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" });
@@ -111,7 +117,7 @@ function App() {
                 id="city"
                 className="input-field"
                 value={city}
-                onChange={(e) => setCity(e.target.value)}
+                onChange={(e) => handleCityChange(e.target.value)}
               >
                 {cities.map((c) => <option key={c} value={c}>{c}</option>)}
               </select>
@@ -119,15 +125,17 @@ function App() {
 
             <div className="input-group">
               <label htmlFor="district"><MapPin size={13} /> İlçe <span style={{ color: "var(--txt-3)", fontWeight: 400 }}>(Opsiyonel)</span></label>
-              <input
+              <select
                 id="district"
-                type="text"
                 className="input-field"
-                placeholder="Örn: Çankaya"
                 value={district}
                 onChange={(e) => setDistrict(e.target.value)}
-                onKeyDown={handleKey}
-              />
+              >
+                <option value="">— Tüm İlçeler —</option>
+                {districtList.map((d) => (
+                  <option key={d} value={d}>{d}</option>
+                ))}
+              </select>
             </div>
 
             <button className="btn-search" onClick={handleSearch} disabled={loading}>
