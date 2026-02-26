@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import {
   Pill, Search, MapPin, Map, Phone, Navigation,
-  AlertCircle, Loader2, Sparkles, Activity, Clock, Building2
+  AlertCircle, Loader2, Activity, Clock, Building2
 } from "lucide-react";
 import "./App.css";
 import { cities } from "./cities";
